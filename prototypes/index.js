@@ -20,18 +20,28 @@ const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 
 // SINGLE DATASETS
 // =================================================================
-
+//kittyPrompts (objects containing methods)
+//result is what is asserted against in testing file
 // DATASET: kitties from ./datasets/kitties
 const kittyPrompts = {
   orangeKittyNames() {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.filter(cat => cat.color === 'orange')
+      .map(orangeCat => orangeCat.name); //implicent return
     return result;
 
-    // Annotation:
+    // Annotation (pseudocoding):
     // Write your annotation here as a comment
+    /*
+    getting in an array of objects with name, age, color properties. I want to get back an array of only the orange cats' names.
+    reach for a filter to get back orange cats (want a subset of the original data)
+    update: only want the names of the cats
+    reach for a map - get back an array of the same length but of a different form
+      map over the filtered cats and get back their name properties
+
+    */
   },
 
   sortByAge() {
