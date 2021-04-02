@@ -47,10 +47,11 @@ const kittyPrompts = {
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a, b) => b.age - a.age)
     return result;
 
-    // Annotation:
+    // Annotation: input: array of objects, output: sorted array of objects
+    //going to reach for a sort to put it in order with a comparison operator that descends the order by age
     // Write your annotation here as a comment
   },
 
@@ -68,8 +69,13 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.map(cats => {cats.age += 2; return cats});
+    result.sort((a, b) => b.age - a.age);
     return result;
+    /* input: array of objects
+    output: same array but with an updated property value
+    //reach for .forEach to update values in current array
+    */
   }
 };
 
