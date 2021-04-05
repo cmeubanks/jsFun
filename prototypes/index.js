@@ -151,7 +151,6 @@ const modPrompts = {
     // ]
 
     const result = mods.reduce((list, mod) => {
-      // let value = mods.students / mod.instructors
       let info = {
         mod: mod.mod,
         studentsPerInstructor: mod.students / mod.instructors,
@@ -197,10 +196,22 @@ const cakePrompts = {
     //    ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.map(cake => {
+      var test = {
+        flavor: cake.cakeFlavor,
+        inStock: cake.inStock,
+      }
+      return test
+    })
+    
     return result;
 
     // Annotation:
+    /* input: array of objects with 5 keys
+    output: array of objects (same length), with two keys - flavor and onlyInStock
+    reach for map to get just the flavors and instock
+
+    */
     // Write your annotation here as a comment
   },
 
