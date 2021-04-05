@@ -74,7 +74,7 @@ const kittyPrompts = {
     return result;
     /* input: array of objects
     output: same array but with an updated property value
-    //reach for .forEach to update values in current array
+    //reach for .map to update values in current array
     */
   }
 };
@@ -105,12 +105,20 @@ const clubPrompts = {
     //   Pam: ['Drama', 'Art', 'Chess'],
     //   ...etc
     // }
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    let newArray = [];
+    const result = clubs.map(club => { club.members.forEach(element => { if(!newArray.includes(element)){
+      newArray.push(element)
+      }
+    })
+    })
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
+    //input: an array of objects with the keys club and members, club holds a string value and members holds an array
+    //output: an object with the key being member names (from members array) and the value is an array of clubs they are in.
+    //reach for .reduce to turn info into an object - last step
+
   }
 };
 
@@ -142,11 +150,23 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = mods.reduce((list, mod) => {
+      // let value = mods.students / mod.instructors
+      let info = {
+        mod: mod.mod,
+        studentsPerInstructor: mod.students / mod.instructors,
+      }
+      list.push(info);
+      return list
+    }, [])
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
+    /*input: an array of objects with the keys - mod, students, instructors. The values are numbers
+    output: an array of objects with the keys mod and students per instructor
+    //arrays are the same length with students and instructor keys being combined and manipulated
+    //reach for a reduce so I can manipulate the data into a new array with a new key type */
   }
 };
 
