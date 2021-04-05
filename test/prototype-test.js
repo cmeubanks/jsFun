@@ -122,7 +122,7 @@ describe("PROTOTYPES", () => {
   });
 
   describe("Cake Prompts", () => {
-    it.only("stockPerCake", () => {
+    it("stockPerCake", () => {
       const e = cakePrompts.stockPerCake();
 
       expect(e).to.deep.equal([{

@@ -203,7 +203,7 @@ const cakePrompts = {
       }
       return test
     })
-    
+
     return result;
 
     // Annotation:
@@ -236,10 +236,14 @@ const cakePrompts = {
     // ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.filter(cake => cake.inStock > 0);
     return result;
 
     // Annotation:
+    /*input: array of objects with 5 keys, inStock being a integer
+    output: shorter array of objects than original, same number of key values
+    reaching for a filter to return only the objects that have an instock value greater than 0
+    */
     // Write your annotation here as a comment
   },
 
@@ -247,10 +251,17 @@ const cakePrompts = {
     // Return the total amount of cakes in stock e.g.
     // 59
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.reduce((sum, cake) => {
+      sum = sum + cake.inStock
+      return sum
+    }, 0)
     return result;
 
     // Annotation:
+    /*Input: array of cake objects with 5 keys
+    Output: integer that is the sum of the total amount of cakes instock
+    Reaching for a reduce so I can add together all the inStock keys and return an integer
+    */
     // Write your annotation here as a comment
   },
 
@@ -258,11 +269,22 @@ const cakePrompts = {
     // Return an array of all unique toppings (no duplicates) needed to bake
     // every cake in the dataset e.g.
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [];
+    const getIngredients = cakes.map(cake => {
+      cake.toppings.forEach(topping => {
+        if(!result.includes(topping)){
+          result.push(topping)
+        }
+      })
+    })
     return result;
 
     // Annotation:
+    /* input: an array of objects
+    output: an array of individual ingredients
+    reach for: a map to go through each cake element and a forEach to push each element to a newArray
+    */
+
     // Write your annotation here as a comment
   },
 
@@ -277,10 +299,25 @@ const cakePrompts = {
     //    ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.reduce((obj, cake) => {
+      cake.toppings.forEach(topping => {
+        if(!obj[topping]) {
+          obj[topping] = 1;
+        } else {
+          obj[topping] += 1;
+        }
+      })
+      return obj
+    }, {})
     return result;
 
     // Annotation:
+    /* input: array of objects 5 properties
+    output: Is an object with string property keys and integer values
+    reach for a reduce, we need to iterate over cakes array and
+    the property of toppings also needs to be iterated over,
+    and we need to count the elements in the toppings properties
+    */
     // Write your annotation here as a comment
   }
 };
@@ -312,10 +349,14 @@ const classPrompts = {
     //   { roomLetter: 'G', program: 'FE', capacity: 29 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = classrooms.filter(class1 => class1.program === "FE")
     return result;
 
     // Annotation:
+    /*Input: Array of objects with three properties, all are given string values except capacity;
+    Output: Array of objects, different length than the orginal, same properties but only the programs with the string of "FE"
+    Reach: for a filter to return only classrooms with the FE string
+    */
     // Write your annotation here as a comment
   },
 
@@ -331,6 +372,10 @@ const classPrompts = {
     return result;
 
     // Annotation:
+    /* input: Array of object elements, with three properties
+    output: An object with two properties, the properties are the sum of the capacity of the respective programs
+    reach: for reduce to create an object and sum the capacities
+    */
     // Write your annotation here as a comment
   },
 
@@ -368,6 +413,7 @@ const bookPrompts = {
     return result;
 
     // Annotation:
+
     // Write your annotation here as a comment
 
   },
