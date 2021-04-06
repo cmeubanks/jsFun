@@ -647,11 +647,24 @@ const turingPrompts = {
     //  { name: 'Pam', studentCount: 21 },
     //  { name: 'Robbie', studentCount: 18 }
     // ]
+    const newArray = [];
+    const modNum = instructors.forEach(instructor =>
+    newArray.push({name: instructor.name, module: instructor.module}))
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const newArray2 = [];
+    const result = newArray.forEach(instructor => {
+      if (newArray.module === cohorts.forEach(cohort => cohort.module)) {
+        newArray2.push({studentCount: cohort.studentCount})
+      }
+    })
+    console.log(newArray2)
     return result;
 
     // Annotation:
+    /* input: 2 seperate array of objects
+    output: one array of objects
+    reach:
+    */
     // Write your annotation here as a comment
   },
 
