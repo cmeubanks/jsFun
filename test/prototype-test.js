@@ -621,7 +621,7 @@ describe("PROTOTYPES", () => {
       expect(e).to.deep.equal(113)
     });
 
-    it("charactersByTotal", () => {
+    it.only ("charactersByTotal", () => {
       const e = ultimaPrompts.charactersByTotal();
 
       expect(e).to.deep.equal([{

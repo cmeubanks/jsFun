@@ -862,10 +862,22 @@ const ultimaPrompts = {
     // Return the sum of the amount of damage for all the weapons that our characters can use
     // Answer => 113
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = characters.reduce((sum, character) => {
+      character.weapons.forEach(weapon => {
+        sum += weapons[weapon].damage
+      })
+      return sum
+    },0)
     return result;
 
     // Annotation:
+    /*Input: An array of object elements, and an objects with keys whose values are objects
+    Output: an integer
+    reach for a reduce, utilize bracket notation
+    assigning a value put it on the left
+    Hint - look for string iterations that match up to an
+    object **good sign of bracket notation**
+    */
     // Write your annotation here as a comment
   },
 
@@ -874,10 +886,30 @@ const ultimaPrompts = {
     // Return the sum damage and total range for each character as an object.
     // ex: [ { Avatar: { damage: 27, range: 24 }, { Iolo: {...}, ...}
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = characters.reduce((arr, character) => {
+      // console.log(character.name)
+          let charObj = {
+          character.name:
+          {
+          damage: character.weapons.reduce((sum, weapon) => {sum += weapons[weapon].damage
+            return sum
+          }, 0),
+          range: character.weapons.reduce((sum, weapon) => {sum += weapons[weapon].range
+            return sum
+          }, 0)
+        }
+      }
+      return arr.push(charObj)
+    }, [])
     return result;
 
     // Annotation:
+    /* Input: same as above
+    Output: An array of objects whose values are objects
+    map is an option because array return is same length
+    reduce can also create new arrays
+
+    */
     // Write your annotation here as a comment
   },
 };
