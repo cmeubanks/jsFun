@@ -798,7 +798,20 @@ const astronomyPrompts = {
     //     color: 'red' }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    //input: Object of objects & array of objects
+    //output: array of objects
+    //iterate through constellations object
+    // look at star's key of constellation in each element
+    //reach for a filter
+
+    const result =
+    Object.keys(constellations).reduce((arr, constellation) => {
+      constellation.stars.forEach(starX => {
+        arr.push((stars.filter(star => star.name) === starX))
+      })
+      return arr
+    },[])
+
     return result;
 
     // Annotation:

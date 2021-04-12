@@ -375,7 +375,7 @@ describe("PROTOTYPES", () => {
   });
 
   describe("Brewery Prompts", () => {
-    it.only("getBeerCount", () => {
+    it("getBeerCount", () => {
       const e = breweryPrompts.getBeerCount();
 
       expect(e).to.deep.equal(40)
@@ -512,7 +512,7 @@ describe("PROTOTYPES", () => {
   });
 
   describe("Astronomy Prompts", () => {
-    it("starsInConstellations", () => {
+    it.only("starsInConstellations", () => {
       const e = astronomyPrompts.starsInConstellations();
 
       expect(e).to.deep.equal([{
