@@ -571,8 +571,15 @@ const breweryPrompts = {
   getBeerCount() {
     // Return the total beer count of all beers for every brewery e.g.
     // 40
+    //input: array of objects - targeting beers key which holds a value of an array of objects
+    //output: an integer
+    //reach for reduce because it can return a number
+    //look at each beers value and add the number of elements
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = breweries.reduce((sum, brewery) => {
+      sum += brewery.beers.length
+      return sum
+    }, 0);
     return result;
 
     // Annotation:
@@ -886,22 +893,22 @@ const ultimaPrompts = {
     // Return the sum damage and total range for each character as an object.
     // ex: [ { Avatar: { damage: 27, range: 24 }, { Iolo: {...}, ...}
 
-    const result = characters.reduce((arr, character) => {
-      // console.log(character.name)
-          let charObj = {
-          character.name:
-          {
-          damage: character.weapons.reduce((sum, weapon) => {sum += weapons[weapon].damage
-            return sum
-          }, 0),
-          range: character.weapons.reduce((sum, weapon) => {sum += weapons[weapon].range
-            return sum
-          }, 0)
-        }
-      }
-      return arr.push(charObj)
-    }, [])
-    return result;
+    // const result = characters.reduce((arr, character) => {
+    //   // console.log(character.name)
+    //       let charObj = {
+    //       character.name:
+    //       {
+    //       damage: character.weapons.reduce((sum, weapon) => {sum += weapons[weapon].damage
+    //         return sum
+    //       }, 0),
+    //       range: character.weapons.reduce((sum, weapon) => {sum += weapons[weapon].range
+    //         return sum
+    //       }, 0)
+    //     }
+    //   }
+    //   return arr.push(charObj)
+    // }, [])
+    // return result;
 
     // Annotation:
     /* Input: same as above

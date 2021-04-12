@@ -375,7 +375,7 @@ describe("PROTOTYPES", () => {
   });
 
   describe("Brewery Prompts", () => {
-    it("getBeerCount", () => {
+    it.only("getBeerCount", () => {
       const e = breweryPrompts.getBeerCount();
 
       expect(e).to.deep.equal(40)
@@ -415,7 +415,7 @@ describe("PROTOTYPES", () => {
   });
 
   describe("Turing Prompts", () => {
-    it.only("studentsForEachInstructor", () => {
+    it("studentsForEachInstructor", () => {
       const e = turingPrompts.studentsForEachInstructor();
 
       expect(e).to.deep.equal([{
@@ -621,7 +621,7 @@ describe("PROTOTYPES", () => {
       expect(e).to.deep.equal(113)
     });
 
-    it.only ("charactersByTotal", () => {
+    it("charactersByTotal", () => {
       const e = ultimaPrompts.charactersByTotal();
 
       expect(e).to.deep.equal([{
