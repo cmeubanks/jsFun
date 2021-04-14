@@ -814,7 +814,6 @@ const astronomyPrompts = {
       return arr.reverse()
     },[])
 
-    console.log("result", result)
     return result;
 
 // arr.push((stars.filter(element => element.name) === starX))
@@ -832,8 +831,18 @@ const astronomyPrompts = {
     //   orange: [{obj}],
     //   red: [{obj}]
     // }
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    //input: array of objects - looking at string values
+    //output: an object with an array of objects value
+    // reach for reduce to make one object
+    //use bracket notation to make an object
+    const result = stars.reduce((obj, star) => {
+      if(!obj[star.color]){
+        obj[star.color] = [star];
+      } else {
+      obj[star.color].push(star)
+      }
+      return obj
+    },{});
     return result;
 
     // Annotation:
@@ -854,8 +863,20 @@ const astronomyPrompts = {
     //    "Orion",
     //    "The Little Dipper" ]
 
+    //input: array of objects
+    //output: array of strings
+    //arrays are same length
+    //sort first
+    //then use map to get names only
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+
+    let arraySorted = stars.sort((a ,b) => a.visualMagnitude - b.visualMagnitude)
+    const result = arraySorted.reduce((arr, star) =>{
+    if(star.constellation !== ''){
+      arr.push(star.constellation)
+    }
+    return arr
+    },[])
     return result;
 
     // Annotation:
