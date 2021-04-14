@@ -803,17 +803,21 @@ const astronomyPrompts = {
     //iterate through constellations object
     // look at star's key of constellation in each element
     //reach for a filter
-
     const result =
     Object.keys(constellations).reduce((arr, constellation) => {
-      constellation.stars.forEach(starX => {
-        arr.push((stars.filter(star => star.name) === starX))
-      })
-      return arr
+      constellations[constellation].stars.forEach(starX => (stars.forEach(element => {
+        if(element.name === starX){
+          arr.push(element)
+        }
+      }))
+      )
+      return arr.reverse()
     },[])
 
+    console.log("result", result)
     return result;
 
+// arr.push((stars.filter(element => element.name) === starX))
     // Annotation:
     // Write your annotation here as a comment
   },
