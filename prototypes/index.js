@@ -654,23 +654,26 @@ const turingPrompts = {
     //  { name: 'Pam', studentCount: 21 },
     //  { name: 'Robbie', studentCount: 18 }
     // ]
-    const newArray = [];
-    const modNum = instructors.forEach(instructor =>
-    newArray.push({name: instructor.name, module: instructor.module}))
 
-    const newArray2 = [];
-    const result = newArray.forEach(instructor => {
-      if (newArray.module === cohorts.forEach(cohort => cohort.module)) {
-        newArray2.push({studentCount: cohort.studentCount})
-      }
+    // const result = instructors.map(instructor => {
+    //   let item = {[instructor.name]: cohorts.find(cohort => cohort.module === instructor.module).studentCount}
+    //   return item
+    // })
+    // console.log(result)
+    // return result;
+
+    const result = instructors.map(instructor => {
+      let item = {name:instructor.name, studentCount: cohorts.find(cohort => cohort.module === instructor.module).studentCount}
+      return item
     })
-    console.log(newArray2)
+    console.log(result)
     return result;
-
     // Annotation:
-    /* input: 2 seperate array of objects
-    output: one array of objects
-    reach:
+    /* input: array of objects
+    //output: new array of objects same length as original array
+    Reach for map
+    //use find and includes to get the student count for new objects
+
     */
     // Write your annotation here as a comment
   },
