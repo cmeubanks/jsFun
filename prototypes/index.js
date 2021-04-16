@@ -595,10 +595,24 @@ const breweryPrompts = {
     // ...etc.
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = breweries.map(brewery => {
+      return {name: brewery.name, beerCount: brewery.beers.length}
+    });
     return result;
 
-    // Annotation:
+    /* Annotation:
+    input: array of objects
+    output: array of objects
+    working with the key of name
+    and counting the length of the beer property
+    -start with a map
+    -create new objects within the map
+    -each object create a key of name and a key of beerCount
+    -use dot/bracket notation to get values
+
+
+
+    */
     // Write your annotation here as a comment
   },
 
@@ -610,8 +624,11 @@ const breweryPrompts = {
     const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
-    // Annotation:
-    // Write your annotation here as a comment
+    /* Annotation:
+    input: array of objects
+    output: one object
+    */
+    //Write your annotation here as a comment
   }
 };
 
