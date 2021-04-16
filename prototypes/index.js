@@ -702,10 +702,32 @@ const turingPrompts = {
     // cohort1804: 10.5
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cohorts.reduce((obj, cohort) => {
+      let teacherTotal = instructors.reduce((sum, instructor) => {
+        if(instructor.module === cohort.module){
+          sum += 1
+        }
+        return sum
+      }, 0)
+      obj[`cohort${cohort.cohort}`] = cohort.studentCount / teacherTotal
+      return obj
+    },{});
     return result;
 
     // Annotation:
+    /*
+    input: array of objects, array of objects
+    output: one object with multi- key/value pairs
+    //reach for a reduce
+    //start reduce with my cohorts to get keys
+    //bracket notation to get my keys
+    //assign to keys
+    //look at modules for comparison
+    //iteration through intructors to find all the matches
+    //use a reduce to iterate through
+    //reduce should allow me to create a sum
+
+    */
     // Write your annotation here as a comment
   },
 

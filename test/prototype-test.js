@@ -402,7 +402,7 @@ describe("PROTOTYPES", () => {
       }])
     });
 
-    it.only("findHighestAbvBeer", () => {
+    it("findHighestAbvBeer", () => {
       const e = breweryPrompts.findHighestAbvBeer();
 
       expect(e).to.deep.equal({
@@ -448,7 +448,7 @@ describe("PROTOTYPES", () => {
       }])
     });
 
-    it("studentsPerInstructor", () => {
+    it.only("studentsPerInstructor", () => {
       const e = turingPrompts.studentsPerInstructor();
 
       expect(e).to.deep.equal({
