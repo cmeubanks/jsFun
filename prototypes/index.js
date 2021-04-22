@@ -368,7 +368,17 @@ const classPrompts = {
     //   beCapacity: 96
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    let feSum = 0
+    let beSum = 0
+    const result =
+    classrooms.reduce((obj, class1) => {
+      if(class1.program === 'FE'){
+        obj['feCapacity'] = (feSum += class1.capacity)
+      } else {
+        obj['beCapacity'] = (beSum += class1.capacity)
+      }
+      return obj
+    },{})
     return result;
 
     // Annotation:

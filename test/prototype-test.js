@@ -227,7 +227,7 @@ describe("PROTOTYPES", () => {
       }])
     });
 
-    it("totalCapacities", () => {
+    it.only("totalCapacities", () => {
       const e = classPrompts.totalCapacities();
 
       expect(e).to.deep.equal({
@@ -448,7 +448,7 @@ describe("PROTOTYPES", () => {
       }])
     });
 
-    it.only("studentsPerInstructor", () => {
+    it("studentsPerInstructor", () => {
       const e = turingPrompts.studentsPerInstructor();
 
       expect(e).to.deep.equal({
